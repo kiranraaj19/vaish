@@ -82,7 +82,7 @@ const Accomplishments = () => {
         <h3 className="font-serif text-2xl md:text-3xl mb-12 text-center">📺 Credits</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {credits.map((credit, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
+            <div key={index} className="beautiful-card">
               {credit.image ? (
                 <div className="relative h-48">
                   <Image
@@ -106,10 +106,10 @@ const Accomplishments = () => {
               ) : null}
               
               <div className="p-6">
-                <h4 className="font-serif text-lg font-medium mb-2">{credit.title}</h4>
-                <p className="text-sm text-gray-600 mb-1">{credit.subtitle}</p>
+                <h4 className="font-serif text-lg font-medium mb-2 text-foreground">{credit.title}</h4>
+                <p className="text-sm text-muted mb-1">{credit.subtitle}</p>
                 {credit.role && (
-                  <p className="text-sm text-gray-500">{credit.role}</p>
+                  <p className="text-sm text-muted/80">{credit.role}</p>
                 )}
               </div>
             </div>
@@ -122,7 +122,7 @@ const Accomplishments = () => {
         <h3 className="font-serif text-2xl md:text-3xl mb-12 text-center">🏆 Accolades</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {accolades.map((accolade, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
+            <div key={index} className="beautiful-card">
               <div className="relative h-48">
                 <Image
                   src={accolade.image}
@@ -132,10 +132,10 @@ const Accomplishments = () => {
                 />
               </div>
               <div className="p-6">
-                <h4 className="font-serif text-sm font-medium mb-2">{accolade.title}</h4>
-                <p className="text-xs text-gray-600 mb-1">{accolade.subtitle}</p>
+                <h4 className="font-serif text-sm font-medium mb-2 text-foreground">{accolade.title}</h4>
+                <p className="text-xs text-muted mb-1">{accolade.subtitle}</p>
                 {accolade.category && (
-                  <p className="text-xs text-gray-500">{accolade.category}</p>
+                  <p className="text-xs text-muted/80">{accolade.category}</p>
                 )}
               </div>
             </div>

@@ -46,7 +46,7 @@ const Portfolio = () => {
   ];
 
   const PortfolioItem = ({ item }: { item: any }) => (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
+    <div className="beautiful-card">
       <div className="relative h-64">
         <Image
           src={item.image}
@@ -56,9 +56,9 @@ const Portfolio = () => {
         />
       </div>
       <div className="p-6">
-        <h4 className="font-serif text-xl font-medium mb-2">{item.title}</h4>
-        <p className="text-sm text-gray-600 mb-3 font-medium">{item.genre}</p>
-        <p className="text-gray-700 leading-relaxed">{item.description}</p>
+        <h4 className="font-serif text-xl font-medium mb-2 text-foreground">{item.title}</h4>
+        <p className="text-sm text-muted mb-3 font-medium">{item.genre}</p>
+        <p className="text-foreground/80 leading-relaxed">{item.description}</p>
       </div>
     </div>
   );
