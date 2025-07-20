@@ -56,7 +56,7 @@ const PressBuzz = () => {
           <div key={index} className="border-b border-gray-200 pb-6 last:border-b-0">
             <div className="flex flex-col md:flex-row md:items-baseline md:gap-4">
               <h3 className="font-serif text-lg md:text-xl italic mb-2 md:mb-0">
-                "{item.title}"
+                &ldquo;{item.title}&rdquo;
               </h3>
               <div className="text-sm text-gray-600">
                 <span>{item.author}</span>

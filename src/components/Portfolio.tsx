@@ -2,8 +2,15 @@
 
 import Image from 'next/image';
 
+interface PortfolioItem {
+  image: string;
+  title: string;
+  genre: string;
+  description: string;
+}
+
 const Portfolio = () => {
-  const tvPilots = [
+  const tvPilots: PortfolioItem[] = [
     {
       image: '/static/tvpilots/JustMiddleClassThings.png',
       title: 'JUST MIDDLE CLASS THINGS',
@@ -24,7 +31,7 @@ const Portfolio = () => {
     }
   ];
 
-  const screenplays = [
+  const screenplays: PortfolioItem[] = [
     {
       image: '/static/screenplays/RiteOfPassage.png',
       title: 'RITE OF PASSAGE',
@@ -45,7 +52,7 @@ const Portfolio = () => {
     }
   ];
 
-  const PortfolioItem = ({ item }: { item: any }) => (
+  const PortfolioItemComponent = ({ item }: { item: PortfolioItem }) => (
     <div className="beautiful-card">
       <div className="relative h-64">
         <Image
@@ -72,7 +79,7 @@ const Portfolio = () => {
         <h3 className="font-serif text-2xl md:text-3xl mb-12 text-center">📺 TV Pilots</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {tvPilots.map((pilot, index) => (
-            <PortfolioItem key={index} item={pilot} />
+            <PortfolioItemComponent key={index} item={pilot} />
           ))}
         </div>
       </div>
@@ -82,7 +89,7 @@ const Portfolio = () => {
         <h3 className="font-serif text-2xl md:text-3xl mb-12 text-center">🎬 Screenplays</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {screenplays.map((screenplay, index) => (
-            <PortfolioItem key={index} item={screenplay} />
+            <PortfolioItemComponent key={index} item={screenplay} />
           ))}
         </div>
       </div>
