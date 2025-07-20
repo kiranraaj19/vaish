@@ -53,12 +53,12 @@ const Navbar = () => {
             >
               Accolades
             </button>
-            <button
+            {/* <button
               onClick={() => scrollToSection('press')}
               className="text-sm hover:text-accent transition-colors"
             >
               Press
-            </button>
+            </button> */}
             <button
               onClick={() => scrollToSection('portfolio')}
               className="text-sm hover:text-accent transition-colors"
