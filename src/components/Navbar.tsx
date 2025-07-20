@@ -31,7 +31,7 @@ const Navbar = () => {
             onClick={() => scrollToSection('landing')}
             className="font-serif text-xl font-medium hover:text-accent transition-colors"
           >
-            VP
+            Vaishnavi Padmanathan
           </button>
           
           <div className="hidden md:flex items-center space-x-8">
@@ -42,10 +42,16 @@ const Navbar = () => {
               About
             </button>
             <button
-              onClick={() => scrollToSection('accomplishments')}
+              onClick={() => scrollToSection('credits')}
               className="text-sm hover:text-accent transition-colors"
             >
-              Accomplishments
+              Credits
+            </button>
+            <button
+              onClick={() => scrollToSection('accolades')}
+              className="text-sm hover:text-accent transition-colors"
+            >
+              Accolades
             </button>
             <button
               onClick={() => scrollToSection('press')}

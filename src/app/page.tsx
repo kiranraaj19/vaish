@@ -3,7 +3,8 @@
 import { useEffect } from 'react';
 import Landing from '@/components/Landing';
 import About from '@/components/About';
-import Accomplishments from '@/components/Accomplishments';
+import Credits from '@/components/Credits';
+import Accolades from '@/components/Accolades';
 import PressBuzz from '@/components/PressBuzz';
 import Portfolio from '@/components/Portfolio';
 import Contact from '@/components/Contact';
@@ -44,8 +45,12 @@ export default function Home() {
         <About />
       </section>
 
-      <section id="accomplishments" className="min-h-screen py-20 px-4">
-        <Accomplishments />
+      <section id="credits" className="min-h-screen py-20 px-4">
+        <Credits />
+      </section>
+
+      <section id="accolades" className="min-h-screen py-20 px-4">
+        <Accolades />
       </section>
 
       <section id="press" className="min-h-screen py-20 px-4">

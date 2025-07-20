@@ -85,13 +85,18 @@ const Portfolio = () => {
       </div>
 
       {/* Screenplays Section */}
-      <div>
+      <div className="mb-12">
         <h3 className="font-serif text-2xl md:text-3xl mb-12 text-center">🎬 Screenplays</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {screenplays.map((screenplay, index) => (
             <PortfolioItemComponent key={index} item={screenplay} />
           ))}
         </div>
+      </div>
+
+      {/* Disclaimer */}
+      <div className="text-center">
+        <p className="text-sm text-muted italic">*Images used purely for representation</p>
       </div>
     </div>
   );
