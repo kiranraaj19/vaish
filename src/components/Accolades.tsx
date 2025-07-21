@@ -55,12 +55,12 @@ const Accolades = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {accolades.map((accolade, index) => (
           <div key={index} className="beautiful-card">
-            <div className="relative h-48">
+            <div className="relative h-48 flex items-center justify-center bg-white">
               <Image
                 src={accolade.image}
                 alt={accolade.title}
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
             <div className="p-6">

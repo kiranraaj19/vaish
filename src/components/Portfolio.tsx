@@ -15,7 +15,7 @@ const Portfolio = () => {
       image: '/static/tvpilots/JustMiddleClassThings.png',
       title: 'JUST MIDDLE CLASS THINGS',
       genre: 'half-hour comedy',
-      description: 'When the Menons move next door to their father\'s coworkers, everyone struggles to fit in with the new neighbors.'
+      description: 'In the late 90s, when the Menons move into a house provided by the father’s job, everyone struggles to fit in with the new neighbor who are the father’s coworkers.'
     },
     {
       image: '/static/tvpilots/ThePostGraduate.png',
@@ -27,7 +27,7 @@ const Portfolio = () => {
       image: '/static/tvpilots/PregnantPause.jpeg',
       title: 'PREGNANT PAUSE',
       genre: 'half-hour comedy',
-      description: 'An Indian female standup\'s rise to fame and the lengths she will go to to make her dream a reality.'
+      description: 'An Indian female standup\'s rise to fame and the lengths she will go to make her dream a reality.'
     }
   ];
 

@@ -5,7 +5,7 @@ import Landing from '@/components/Landing';
 import About from '@/components/About';
 import Credits from '@/components/Credits';
 import Accolades from '@/components/Accolades';
-// import PressBuzz from '@/components/PressBuzz';
+import PressBuzz from '@/components/PressBuzz';
 import Portfolio from '@/components/Portfolio';
 import Contact from '@/components/Contact';
 import Navbar from '@/components/Navbar';
@@ -53,9 +53,9 @@ export default function Home() {
         <Accolades />
       </section>
 
-      {/* <section id="press" className="min-h-screen py-20 px-4">
+      <section id="press" className="min-h-screen py-20 px-4">
         <PressBuzz />
-      </section> */}
+      </section>
 
       <section id="portfolio" className="min-h-screen py-20 px-4">
         <Portfolio />
