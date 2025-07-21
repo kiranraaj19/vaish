@@ -6,7 +6,7 @@ const Accolades = () => {
   const accolades = [
     {
       image: '/static/accomplishments/accolades/CMAFellowShip.png',
-      title: 'CMA FELLOWSHIP 2025',
+      title: 'CHILDREN’S MEDIA ASSOCIATION FELLOWSHIP 2025',
       subtitle: 'SEMIFINALIST'
     },
     {
