@@ -37,30 +37,36 @@ const Landing = () => {
 
   return (
     <div className="relative w-full min-h-screen bg-ink text-paper flex flex-col items-center justify-center overflow-hidden px-6 py-32">
-      <div ref={revealRef} className="max-w-4xl mx-auto text-center">
-        <p className="eyebrow eyebrow-on-ink mb-8">
-          Writer from India &middot; She/Her
-        </p>
-
-        <h1 className="font-serif text-5xl sm:text-6xl md:text-8xl font-light leading-[0.95] tracking-tight">
-          Vaishnavi
-          <br />
-          Padmanathan
-        </h1>
-
-        <div className="relative w-20 h-24 sm:w-24 sm:h-28 mx-auto mt-10 border border-paper/30">
+      <div
+        ref={revealRef}
+        className="max-w-5xl mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-16"
+      >
+        <div className="relative w-48 h-64 sm:w-56 sm:h-72 lg:w-72 lg:h-96 flex-shrink-0 border border-paper/30">
           <Image
             src="/static/profilepic/VaishPicture.jpg"
             alt="Vaishnavi Padmanathan"
             fill
             className="object-cover"
+            sizes="(min-width: 1024px) 18rem, (min-width: 640px) 14rem, 12rem"
             priority
           />
+        </div>
+
+        <div className="text-center lg:text-left">
+          <p className="eyebrow eyebrow-on-ink mb-8">
+            Writer from India &middot; She/Her
+          </p>
+
+          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light leading-[0.95] tracking-tight">
+            Vaishnavi
+            <br />
+            Padmanathan
+          </h1>
         </div>
       </div>
 
       <p
-        className="mt-8 max-w-sm text-center font-serif italic text-lg sm:text-xl text-paper/80 min-h-[3.5rem]"
+        className="mt-10 max-w-sm text-center font-serif italic text-lg sm:text-xl text-paper/80 min-h-[3.5rem]"
         aria-label={TAGLINE}
       >
         <span aria-hidden="true">{typed}</span>
