@@ -1,42 +1,78 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import { revealLines, prefersReducedMotion } from '@/lib/scrollReveal';
+
+const TAGLINE = 'You will probably find me typing away with fury at my desk.';
 
 const Landing = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const revealRef = useRef<HTMLDivElement>(null);
+  const [typed, setTyped] = useState('');
+  const [typingDone, setTypingDone] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true);
+    const startTyping = () => {
+      if (prefersReducedMotion()) {
+        setTyped(TAGLINE);
+        setTypingDone(true);
+        return;
+      }
+
+      let i = 0;
+      const id = setInterval(() => {
+        i += 1;
+        setTyped(TAGLINE.slice(0, i));
+        if (i >= TAGLINE.length) {
+          clearInterval(id);
+          setTypingDone(true);
+        }
+      }, 32);
+
+      return () => clearInterval(id);
+    };
+
+    revealLines(revealRef.current, { delay: 0.3, onComplete: startTyping });
   }, []);
 
   return (
-    <div className={`max-w-6xl mx-auto transition-all duration-1000 ${
-      isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-    }`}>
-      <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16">
-        {/* Profile Picture */}
-        <div className="flex-shrink-0">
-          <div className="relative w-48 h-48 lg:w-64 lg:h-64">
-            <Image
-              src="/static/profilepic/VaishPicture.jpg"
-              alt="Vaishnavi Padmanathan"
-              fill
-              className="profile-picture object-cover"
-              priority
-            />
-          </div>
-        </div>
+    <div className="relative w-full min-h-screen bg-ink text-paper flex flex-col items-center justify-center overflow-hidden px-6 py-32">
+      <div ref={revealRef} className="max-w-4xl mx-auto text-center">
+        <p className="eyebrow eyebrow-on-ink mb-8">
+          Writer from India &middot; She/Her
+        </p>
 
-        {/* Text Content */}
-        <div className="text-center lg:text-left max-w-2xl">
-          <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl font-light leading-tight">
-            I am Vaishnavi Padmanathan (she/her), a writer from India. You will probably find me typing away with fury at my desk.
-          </h1>
+        <h1 className="font-serif text-5xl sm:text-6xl md:text-8xl font-light leading-[0.95] tracking-tight">
+          Vaishnavi
+          <br />
+          Padmanathan
+        </h1>
+
+        <div className="relative w-20 h-24 sm:w-24 sm:h-28 mx-auto mt-10 border border-paper/30">
+          <Image
+            src="/static/profilepic/VaishPicture.jpg"
+            alt="Vaishnavi Padmanathan"
+            fill
+            className="object-cover"
+            priority
+          />
         </div>
+      </div>
+
+      <p
+        className="mt-8 max-w-sm text-center font-serif italic text-lg sm:text-xl text-paper/80 min-h-[3.5rem]"
+        aria-label={TAGLINE}
+      >
+        <span aria-hidden="true">{typed}</span>
+        {!typingDone && <span className="typewriter-caret" aria-hidden="true" />}
+      </p>
+
+      <div className="absolute bottom-10 left-0 right-0 flex flex-col items-center gap-3 opacity-50">
+        <span className="eyebrow eyebrow-on-ink">Scroll</span>
+        <span className="block w-px h-10 bg-paper/30" />
       </div>
     </div>
   );
 };
 
-export default Landing; 
+export default Landing;

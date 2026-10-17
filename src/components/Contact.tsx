@@ -1,93 +1,103 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { revealStagger } from '@/lib/scrollReveal';
 
 const Contact = () => {
+  const containerRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
   });
+
+  useEffect(() => {
+    revealStagger(containerRef.current, '.field-group');
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // TODO: Integrate with formspree or custom backend
     console.log('Form submitted:', formData);
-    // Reset form
     setFormData({ name: '', email: '', message: '' });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   return (
-    <div className="max-w-2xl mx-auto">
-      <h2 className="font-serif text-4xl md:text-5xl text-center mb-16">📬 Get In Touch</h2>
-      
-      <div className="beautiful-card p-8">
-        <form onSubmit={handleSubmit} className="space-y-8">
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-3 border border-card-border rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-colors bg-card-bg text-foreground placeholder-muted/60"
-              placeholder="Your name"
-            />
-          </div>
+    <div className="max-w-xl mx-auto">
+      <p className="eyebrow mb-10">06 &mdash; Write to Me</p>
 
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-3 border border-card-border rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-colors bg-card-bg text-foreground placeholder-muted/60"
-              placeholder="your.email@example.com"
-            />
-          </div>
+      <form ref={containerRef} onSubmit={handleSubmit} className="space-y-10">
+        <div className="field-group">
+          <label htmlFor="name" className="text-xs uppercase tracking-wide text-muted">
+            Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            className="field-underline w-full text-ink placeholder-muted/60"
+            placeholder="Your name"
+          />
+        </div>
 
-          <div>
-            <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              rows={6}
-              className="w-full px-4 py-3 border border-card-border rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-colors bg-card-bg text-foreground placeholder-muted/60 resize-none"
-              placeholder="Tell me about your project or just say hello..."
-            />
-          </div>
+        <div className="field-group">
+          <label htmlFor="email" className="text-xs uppercase tracking-wide text-muted">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            className="field-underline w-full text-ink placeholder-muted/60"
+            placeholder="your.email@example.com"
+          />
+        </div>
 
+        <div className="field-group">
+          <label
+            htmlFor="message"
+            className="text-xs uppercase tracking-wide text-muted"
+          >
+            Message
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            required
+            rows={5}
+            className="field-underline w-full text-ink placeholder-muted/60 resize-none"
+            placeholder="Tell me about your project or just say hello..."
+          />
+        </div>
+
+        <div className="field-group">
           <button
             type="submit"
-            className="w-full bg-accent text-white py-3 px-6 rounded-lg font-medium hover:bg-accent/90 transition-colors focus:ring-2 focus:ring-accent focus:ring-offset-2 shadow-lg hover:shadow-xl"
+            className="w-full bg-ink text-paper py-4 font-serif text-lg tracking-wide hover:bg-accent transition-colors"
           >
             Send Message
           </button>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
   );
 };
 
-export default Contact; 
+export default Contact;

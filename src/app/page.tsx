@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect } from 'react';
 import Landing from '@/components/Landing';
 import About from '@/components/About';
 import Credits from '@/components/Credits';
@@ -11,57 +10,35 @@ import Contact from '@/components/Contact';
 import Navbar from '@/components/Navbar';
 
 export default function Home() {
-  useEffect(() => {
-    // Add smooth scroll behavior
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-fade-in');
-        }
-      });
-    }, observerOptions);
-
-    // Observe all sections
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => observer.observe(section));
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-paper">
       <Navbar />
-      
-      <section id="landing" className="min-h-screen flex items-center justify-center px-4">
+
+      <section id="landing">
         <Landing />
       </section>
 
-      <section id="about" className="min-h-screen flex items-center justify-center px-4 py-20">
+      <section id="about" className="py-24 md:py-36 px-6">
         <About />
       </section>
 
-      <section id="credits" className="min-h-screen py-20 px-4">
+      <section id="credits" className="py-24 md:py-36 px-6">
         <Credits />
       </section>
 
-      <section id="accolades" className="min-h-screen py-20 px-4">
+      <section id="accolades" className="py-24 md:py-36 px-6">
         <Accolades />
       </section>
 
-      <section id="press" className="min-h-screen py-20 px-4">
+      <section id="press" className="py-24 md:py-36 px-6">
         <PressBuzz />
       </section>
 
-      <section id="portfolio" className="min-h-screen py-20 px-4">
+      <section id="portfolio" className="py-24 md:py-36 px-6">
         <Portfolio />
       </section>
 
-      <section id="contact" className="min-h-screen py-20 px-4">
+      <section id="contact" className="py-24 md:py-36 px-6">
         <Contact />
       </section>
     </main>

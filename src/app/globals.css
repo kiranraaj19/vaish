@@ -1,35 +1,33 @@
 @import "tailwindcss";
 
 :root {
-  --background: #faf9f6;
-  --foreground: #2d1b0e;
-  --accent: #8b4513;
-  --muted: #6b4f3f;
-  --card-bg: #ffffff;
-  --card-border: #e8d5c4;
-  --card-shadow: rgba(139, 69, 19, 0.1);
+  --ink: #171310;
+  --paper: #f1e9d8;
+  --paper-soft: #e8ddc8;
+  --accent: #9c2b1f;
+  --accent-soft: rgba(156, 43, 31, 0.12);
+  --muted: #6b6050;
+  --line: rgba(23, 19, 16, 0.15);
+  --line-on-ink: rgba(241, 233, 216, 0.2);
+
+  --background: var(--paper);
+  --foreground: var(--ink);
 }
 
 @theme inline {
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-paper-soft: var(--paper-soft);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-on-ink: var(--line-on-ink);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-accent: var(--accent);
-  --color-muted: var(--muted);
-  --color-card-bg: var(--card-bg);
-  --color-card-border: var(--card-border);
-  --color-card-shadow: var(--card-shadow);
   --font-sans: var(--font-inter);
   --font-serif: var(--font-playfair);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #1a0f0a;
-    --foreground: #f5e6d3;
-    --muted: #c4a484;
-    --card-bg: #2d1b0e;
-    --card-border: #4a2c1a;
-  }
+  --font-hand: var(--font-caveat);
 }
 
 body {
@@ -43,7 +41,6 @@ body {
   font-family: var(--font-serif), Georgia, serif;
 }
 
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
@@ -54,65 +51,150 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--paper-soft);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
-  border-radius: 4px;
+  background: var(--muted);
+  border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8;
+  background: var(--accent);
 }
 
-/* Custom animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Eyebrow / section-number label, replaces emoji headers */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.8s ease-out forwards;
+.eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 1.5rem;
+  height: 1px;
+  background: var(--accent);
 }
 
-/* Section transitions */
-section {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+.eyebrow-on-ink {
+  color: var(--paper);
 }
 
-section.animate-fade-in {
-  opacity: 1;
-  transform: translateY(0);
+.eyebrow-on-ink::before {
+  background: var(--paper);
 }
 
-/* Beautiful card styles */
-.beautiful-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 16px;
-  box-shadow: 0 4px 20px var(--card-shadow);
-  transition: all 0.3s ease;
-  overflow: hidden;
+/* Hairline rule */
+.rule {
+  height: 1px;
+  width: 100%;
+  background: var(--line);
+  transform-origin: left center;
 }
 
-.beautiful-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(139, 69, 19, 0.15);
+.rule-on-ink {
+  background: var(--line-on-ink);
+}
+
+/* Drop cap for the opening paragraph of a long-form passage */
+.drop-cap::first-letter {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 4.5rem;
+  line-height: 0.8;
+  font-weight: 500;
+  color: var(--accent);
+  float: left;
+  padding-right: 0.5rem;
+  padding-top: 0.25rem;
+}
+
+/* Pull quote */
+.pull-quote {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  color: var(--accent);
+  line-height: 1.35;
+}
+
+/* Flat editorial "clipping" treatment for credit/press imagery, replaces
+   the old heavy-shadow .beautiful-card */
+.clipping {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  transition: border-color 0.3s ease;
+}
+
+.clipping:hover {
   border-color: var(--accent);
 }
 
-/* Profile picture styles */
-.profile-picture {
-  border-radius: 50%;
-  border: 4px solid var(--card-border);
-  box-shadow: 0 8px 25px rgba(139, 69, 19, 0.2);
+/* Underline-only form field */
+.field-underline {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  padding: 0.75rem 0.25rem;
+  transition: border-color 0.3s ease;
+}
+
+.field-underline:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* Full-screen mobile nav overlay */
+.nav-overlay {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* Handwritten margin notes — editor's pen in the manuscript */
+.marginalia {
+  display: inline-block;
+  font-family: var(--font-hand), cursive;
+  color: var(--accent);
+  line-height: 1;
+  transform: rotate(-2deg);
+}
+
+.marginalia-tilt-right {
+  transform: rotate(2deg);
+}
+
+/* Blinking typewriter caret */
+.typewriter-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 0.15em;
+  background: currentColor;
+  vertical-align: text-bottom;
+  animation: caret-blink 1s steps(1, jump-none) infinite;
+}
+
+@keyframes caret-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.01%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typewriter-caret {
+    animation: none;
+    opacity: 1;
+  }
 }
