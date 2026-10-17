@@ -14,7 +14,7 @@ const playfairDisplay = Playfair_Display({
 
 export const metadata: Metadata = {
   title: "Vaishnavi Padmanathan - Writer",
-  description: "Vaishnavi Padmanathan - Writer. Indian writer for television and screen based in Los Angeles.",
+  description: "Vaishnavi Padmanathan - Writer. Indian writer for television and screen.",
 };
 
 export default function RootLayout({

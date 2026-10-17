@@ -31,7 +31,7 @@ const Landing = () => {
         {/* Text Content */}
         <div className="text-center lg:text-left max-w-2xl">
           <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl font-light leading-tight">
-            I am Vaishnavi Padmanathan (she/her), a writer from India, now based in Los Angeles. You will probably find me typing away with fury at my desk.
+            I am Vaishnavi Padmanathan (she/her), a writer from India. You will probably find me typing away with fury at my desk.
           </h1>
         </div>
       </div>

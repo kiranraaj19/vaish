@@ -1,6 +1,6 @@
 # Vaishnavi Padmanathan - Portfolio Website
 
-A modern, responsive portfolio website for Vaishnavi Padmanathan, an Indian writer for television and screen based in Los Angeles.
+A modern, responsive portfolio website for Vaishnavi Padmanathan, an Indian writer for television and screen.
 
 ## Features
 

@@ -16,9 +16,9 @@ const PressBuzz = () => {
       url: 'https://shesightmag.com/la-based-vaishnavi-padmanathan-wants-to-writestories-that-make-people-seen/'
     },
     {
-      title: 'Meet LA-Based Vaishnavi Padmanathan: A Young Writer With A Lot Of Stories To Tell,',
-      author: 'by Mid-Day',
-      url: 'https://www.mid-day.com/brand-media/article/on-a-mission-meet-la-based-vaishnavi-padmanathan-a-young-writer-with-a-lot-23274542'
+      title: 'On A Mission: LA-based Vaishnavi Padmanathan Wants To Write Stories That Make People Seen',
+      author: 'by Zee News',
+      url: 'https://zeenews.india.com/blogs/on-a-mission-la-based-vaishnavi-padmanathan-wants-to-write-stories-that-make-people-seen-2588827.html'
     }
   ];
 
