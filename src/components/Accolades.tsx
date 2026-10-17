@@ -99,48 +99,34 @@ const Accolades = () => {
         />
       </svg>
       <div ref={containerRef}>
-        {accolades.map((accolade, index) => {
-          const isWinner = accolade.subtitle.toUpperCase().includes('WINNER');
-          return (
-            <div
-              key={index}
-              className="accolade-row flex items-center gap-5 md:gap-6 py-5 border-b border-line"
-            >
-              <div className="relative w-12 h-12 md:w-14 md:h-14 flex-shrink-0 bg-paper-soft border border-line">
-                <Image
-                  src={accolade.image}
-                  alt={accolade.title}
-                  fill
-                  className="object-contain p-1.5"
-                />
-              </div>
-              <div className="flex-1 min-w-0">
-                <h4 className="font-serif text-sm md:text-base text-ink leading-snug">
-                  {accolade.title}
-                </h4>
-                {accolade.category && (
-                  <p className="text-xs text-muted mt-1 tracking-wide">
-                    {accolade.category}
-                  </p>
-                )}
-              </div>
-              <span className="flex-shrink-0 flex items-center gap-1.5">
-                {isWinner && (
-                  <span className="marginalia text-xl" aria-hidden="true">
-                    &#10003;
-                  </span>
-                )}
-                <span
-                  className={`text-xs font-semibold uppercase tracking-wide text-right ${
-                    isWinner ? 'text-accent' : 'text-muted'
-                  }`}
-                >
-                  {accolade.subtitle}
-                </span>
-              </span>
+        {accolades.map((accolade, index) => (
+          <div
+            key={index}
+            className="accolade-row flex items-center gap-5 md:gap-6 py-5 border-b border-line"
+          >
+            <div className="relative w-12 h-12 md:w-14 md:h-14 flex-shrink-0 bg-paper-soft border border-line">
+              <Image
+                src={accolade.image}
+                alt={accolade.title}
+                fill
+                className="object-contain p-1.5"
+              />
             </div>
-          );
-        })}
+            <div className="flex-1 min-w-0">
+              <h4 className="font-serif text-sm md:text-base text-ink leading-snug">
+                {accolade.title}
+              </h4>
+              {accolade.category && (
+                <p className="text-xs text-muted mt-1 tracking-wide">
+                  {accolade.category}
+                </p>
+              )}
+            </div>
+            <span className="flex-shrink-0 text-xs font-semibold uppercase tracking-wide text-muted text-right">
+              {accolade.subtitle}
+            </span>
+          </div>
+        ))}
       </div>
     </div>
   );
