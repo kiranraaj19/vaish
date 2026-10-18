@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { revealLines, prefersReducedMotion } from '@/lib/scrollReveal';
 
-const TAGLINE = 'You will probably find me typing away with fury at my desk.';
+const TAGLINE = 'You will probably find me typing away at my desk.';
 
 const Landing = () => {
   const revealRef = useRef<HTMLDivElement>(null);
